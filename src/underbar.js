@@ -81,14 +81,14 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
-    var pass = [];
+    // var pass = [];
    
-    _.each(collection, function(value){
-      if (test(value)){
-        pass.push(value);
-      }
-    })
-    return pass;
+    // _.each(collection, function(value){
+    //   if (test(value)){
+    //     pass.push(value);
+    //   }
+    // })
+    // return pass;
   };
 
   // Return all elements of an array that don't pass a truth test.
@@ -101,9 +101,9 @@
   //   return _.filter(collection, fail);
   // };
 
-     return _.filter(collection, function(item){
-      return !test(item);
-    });
+    //  return _.filter(collection, function(item){
+    //   return !test(item);
+    // });
   };
 
   // Produce a duplicate-free version of the array.
@@ -269,20 +269,19 @@
 
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
-  _.defaults = function(obj) {
- 
-      for (var i = 0; i < arguments.length; i++) {
-        for (var property in arguments[i]) {
-          if (obj[property]) {
-            obj[property] = obj[property];
-          }
-          else if (obj[property] === undefined) {
-            obj[property] = arguments[i][property];
-          }
+_.defaults = function(obj) {
+    for (var i =0; i<arguments.length; i++){
+      for (var key in arguments[i]){
+        if (obj[key]){
+          obj[key] = obj[key];
         }
+        else if (obj[property] === undefined) {
+          obj[key] = arguments[i][property];
+        }
+  
+    return obj;
       }
-      return obj;
-    
+  }
   };
 
 

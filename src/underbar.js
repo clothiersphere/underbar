@@ -81,14 +81,14 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
-    // var pass = [];
+    var pass = [];
    
-    // _.each(collection, function(value){
-    //   if (test(value)){
-    //     pass.push(value);
-    //   }
-    // })
-    // return pass;
+    _.each(collection, function(value){
+      if (test(value)){
+        pass.push(value);
+      }
+    })
+    return pass;
   };
 
   // Return all elements of an array that don't pass a truth test.
@@ -101,9 +101,9 @@
   //   return _.filter(collection, fail);
   // };
 
-    //  return _.filter(collection, function(item){
-    //   return !test(item);
-    // });
+     return _.filter(collection, function(item){
+      return !test(item);
+    });
   };
 
   // Produce a duplicate-free version of the array.
@@ -275,8 +275,8 @@ _.defaults = function(obj) {
         if (obj[key]){
           obj[key] = obj[key];
         }
-        else if (obj[property] === undefined) {
-          obj[key] = arguments[i][property];
+        else if (obj[key] === undefined) {
+          obj[key] = arguments[i][key];
         }
   
     return obj;
